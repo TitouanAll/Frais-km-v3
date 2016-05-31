@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
+#import "Constant.h"
 
 
 @interface ViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate>
@@ -16,8 +17,6 @@
 @property (nonatomic) sqlite3 *DB;
 
 @property (strong, nonatomic) IBOutlet UILabel *taux;
-
-@property (strong, nonatomic) IBOutlet UILabel *bienvenue;
 
 @property (strong, nonatomic) IBOutlet UITextField *km;
 
@@ -43,9 +42,12 @@
 
 @property (nonatomic) bool securite;
 
+@property (nonatomic) bool hors_connexion;
+
 @property (strong, nonatomic) NSString *version;
 @property (strong, nonatomic) NSString *ancienneversion;
 @property (strong, nonatomic) NSString *identifiant;
+
 
 - (IBAction)soumission:(id)sender;
 

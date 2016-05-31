@@ -52,11 +52,21 @@
                                     <action selector="Connection:" destination="jcc-cd-erj" eventType="touchUpInside" id="pF6-qb-lK8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTo-VK-o3k">
+                                <rect key="frame" x="76" y="20" width="168" height="30"/>
+                                <state key="normal" title="Mode hors-connexion">
+                                    <color key="titleColor" red="0.66787010729999996" green="0.66220796380000002" blue="0.56696916880000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="HC:" destination="jcc-cd-erj" eventType="touchUpInside" id="hyG-eL-hbn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274509803915" green="0.94509803921568625" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="HC_boutton" destination="LTo-VK-o3k" id="jG3-Bi-gc4"/>
                         <outlet property="connexionbutton" destination="IkE-24-BR3" id="biT-Nu-jeH"/>
                         <outlet property="mdp" destination="MqP-gc-a7c" id="M3A-Gh-7mN"/>
                         <outlet property="ndc" destination="E6q-gc-J6p" id="7mt-3o-CDH"/>

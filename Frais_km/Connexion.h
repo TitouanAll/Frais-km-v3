@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
+#import "Constant.h"
 
 @interface Connexion : UIViewController {
 
@@ -24,5 +25,10 @@ NSMutableData *receivedData;
 
 @property (strong, nonatomic) NSString *identifiant;
 
+- (IBAction)HC:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIButton *HC_boutton;
+
+@property (nonatomic) bool hors_connexion;
 
 @end

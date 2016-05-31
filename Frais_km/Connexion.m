@@ -6,6 +6,8 @@
 //  Copyright © 2016 Titouan. All rights reserved.
 //
 
+
+#import "AppDelegate.h"
 #import "Connexion.h"
 #import "ViewController.h"
 #import <QuartzCore/QuartzCore.h>
@@ -16,13 +18,26 @@
 
 @implementation Connexion
 
+extern NSString *globalString;
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+
+    
+    NSLog(@"%@", globalString);
+    
     _connexionbutton.layer.cornerRadius = 5;
+    _hors_connexion = false;
+    
+    
+    
+    
     // Do any additional setup after loading the view.
     
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,50 +48,74 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
-        _mdp.text = @"";
+    _mdp.text = @"";
+    _hors_connexion = false;
     
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (IBAction)Connection:(id)sender {
     
-    
-  
-    NSString *postString = [NSString stringWithFormat:@"type="];
-    NSString *urlString = [NSString stringWithFormat:@"http://localhost:8888/frais_km/service_connexion.php?username=%@&password=%@", _ndc.text, _mdp.text];
-    
-    NSString *returnData =  [self post:postString url:urlString];
-    _identifiant = returnData;
-    
-    NSLog(@"voi voi : %@", returnData);
-    
+   @try {
+        NSString *postString = [NSString stringWithFormat:@"type="];
+        NSString *urlString = [NSString stringWithFormat:@"http://%@service_connexion.php?username=%@&password=%@",globalString, _ndc.text, _mdp.text];
+        
+        NSLog(@" URL : %@", urlString);
+        
+        NSString *returnData =  [self post:postString url:urlString];
+        _identifiant = returnData;
+        
+        NSLog(@"voi voi : %@", returnData);
+        
+        if ([returnData isEqualToString:@"0"] || [returnData isEqualToString:@""]) {
+            NSLog(@"Connexion refusé");
+            _mdp.text = @"";
+            [self shakeView:self.view];
+        }
+        else{
+            NSLog(@"Connexion réussi");
+            
             [self performSegueWithIdentifier:@"connexion" sender:sender];
+        }
+   }
+   @catch (NSException * e) {
+      
+       
+       NSLog(@"%@",e);
+       NSString *message = [NSString stringWithFormat:@"Vérifiez votre accès internet"];
+       
+       UIAlertController * alert=   [UIAlertController
+                                     alertControllerWithTitle:@"Aucune connection"
+                                     message:message
+                                     preferredStyle:UIAlertControllerStyleAlert];
+       
+                                       
+       
+       UIAlertAction* noButton = [UIAlertAction
+                                  actionWithTitle:@"Ok"
+                                  style:UIAlertActionStyleDefault
+                                  handler:^(UIAlertAction * action)
+                                  {
+                                      //Handel no, thanks button
+                                      
+                                  }];
+       
+       [alert addAction:noButton];
+       
+       [self presentViewController:alert animated:YES completion:nil];
+   }
 
-    if (returnData == (id)[NSNull null] || returnData.length == 0 ) {
 
-        NSLog(@"Connexion refusé");
-        _mdp.text = @"";
-        [self shakeView:self.view];
-
-        
-    }
-    else{
-        NSLog(@"Connexion réussi");
-        
-        [self performSegueWithIdentifier:@"connexion" sender:sender];
-        
-    }
     
 
-    
 }
 
 -(NSString *)post:(NSString *)postString url:(NSString*)urlString{
@@ -113,6 +152,7 @@
         
         ViewController *vc = [segue destinationViewController];
         vc.identifiant = _identifiant;
+        vc.hors_connexion = _hors_connexion;
     }
 }
 
@@ -138,4 +178,10 @@
 
 
 
+- (IBAction)HC:(id)sender {
+    
+    _hors_connexion = true;
+    [self performSegueWithIdentifier:@"connexion" sender:sender];
+    
+}
 @end

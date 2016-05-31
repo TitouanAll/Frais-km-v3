@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B555F701CEC67F9008298FF /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B555F6F1CEC67F9008298FF /* Constant.m */; };
 		5B69300C1CBE32E500471F21 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69300B1CBE32E500471F21 /* main.m */; };
 		5B69300F1CBE32E500471F21 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69300E1CBE32E500471F21 /* AppDelegate.m */; };
 		5B6930121CBE32E500471F21 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6930111CBE32E500471F21 /* ViewController.m */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B555F6E1CEC67F9008298FF /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		5B555F6F1CEC67F9008298FF /* Constant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
 		5B6930071CBE32E500471F21 /* Frais_km.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frais_km.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B69300B1CBE32E500471F21 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5B69300D1CBE32E500471F21 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -116,6 +119,8 @@
 				5B69300E1CBE32E500471F21 /* AppDelegate.m */,
 				5B6930101CBE32E500471F21 /* ViewController.h */,
 				5B6930111CBE32E500471F21 /* ViewController.m */,
+				5B555F6E1CEC67F9008298FF /* Constant.h */,
+				5B555F6F1CEC67F9008298FF /* Constant.m */,
 				5BB114D01CD384FC00EB02A2 /* Connexion.h */,
 				5BB114D11CD384FC00EB02A2 /* Connexion.m */,
 				5B6930131CBE32E500471F21 /* Main.storyboard */,
@@ -222,6 +227,7 @@
 				TargetAttributes = {
 					5B6930061CBE32E500471F21 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = M4MU5UY5KZ;
 					};
 					5B6930221CBE32E500471F21 = {
 						CreatedOnToolsVersion = 7.3;
@@ -287,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B6930121CBE32E500471F21 /* ViewController.m in Sources */,
+				5B555F701CEC67F9008298FF /* Constant.m in Sources */,
 				5BB114D21CD384FC00EB02A2 /* Connexion.m in Sources */,
 				5B6930181CBE32E500471F21 /* Frais_km.xcdatamodeld in Sources */,
 				5B69300F1CBE32E500471F21 /* AppDelegate.m in Sources */,
@@ -431,10 +438,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Frais_km/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "EPSI.Frais-km";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -442,10 +452,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Frais_km/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "EPSI.Frais-km";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
